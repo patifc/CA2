@@ -1,4 +1,4 @@
-var logger = require("morgan"),
+/*var logger = require("morgan"),
 cors = require("cors"),
 http = require("http"),
 express = require("express"),
@@ -11,7 +11,7 @@ var userCtrl = require('./user-controller');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(require('.
+app.use(require('.))
 
 app.post('/users', userCtrl.createUser);
 app.get('/users', userCtrl.getUsers);
@@ -30,4 +30,4 @@ mongoose.connection.on('error', (err) => {
 });
 mongoose.connection.on('connected', () => { 
     console.log('MongoDB is successfully connected');
-});
+});*/
