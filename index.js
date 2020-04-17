@@ -6,8 +6,17 @@ const mongoose = require ('mongoose');
 const app = express();
 
 //connect to mongodb
-mongoose.connect('mongodb://localhost/doggo');
-mongoose.Promise = global.Promise;
+mongoose.connect('mongodb+srv://dogs:dogsdb@cluster0-wasmn.mongodb.net/test?retryWrites=true&w=majority' , { useUnifiedTopology: true, useNewUrlParser: true },
+//mongoose.Promise = global.Promise;
+
+//mongoose.connection.on('error', (err) => { 
+  //  console.log('Mongodb Error: ', err); 
+    //process.exit();
+    ()=> console.log ('connected to Db')
+);
+mongoose.connection.on('connected', () => { 
+    console.log('MongoDB is successfully connected');
+});
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
@@ -22,6 +31,6 @@ app.use(function(err, req, res, next){
 });
 
 //This is where we as the server to be listening to user with a specified IP and Port
-app.listen(process.env.PORT || 4000, function () {
+app.listen(process.env.PORT || 3000, function () {
     console.log("My puppys Server has Started!");
 });

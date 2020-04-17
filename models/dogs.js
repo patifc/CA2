@@ -10,7 +10,7 @@ name:{
 description: {
     type: String
 },
-breed :{
+breed: {
     type: String
 },
 age: {
