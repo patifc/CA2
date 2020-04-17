@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 //create dog Schema and model
-const DogSchema = new Schema({
+var dogSchema = new Schema({
 name:{
     type: String,
     required: [true, 'Name field is required']
@@ -23,6 +23,4 @@ sex: {
 //add into the  list 
 });
 
-const Dog = mongoose.model('dog', DogSchema);
-
-module.exports = Dog;
+mongoose.model('Dog', dogSchema);
