@@ -2,6 +2,8 @@ const express = require('express');
 var router = express.Router();
 const mongoose = require('mongoose');
 const Dog = mongoose.model('Dog');
+const multer = require('multer');
+const upload = multer({dest: 'uploads/'});
 
 router.get('/', (req, res) => {
     res.render("dog/index", {
