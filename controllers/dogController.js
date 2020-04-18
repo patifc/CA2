@@ -19,15 +19,15 @@ router.post('/', (req, res) => {
 
 
 function insertRecord(req, res) {
-    var dog = new dog();
+    var dog = new Dog();
     dog.name = req.body.name;
     dog.description = req.body.description;
     dog.breed = req.body.breed;
-    dog.age = req.body.breed;
+    dog.age = req.body.age;
     dog.sex = req.body.sex;
     dog.save((err, doc) => {
         if (!err)
-            res.redirect('dogs/list');
+            res.redirect('dog/list');
         else {
             if (err.name == 'ValidationError') {
                 handleValidationError(err, req.body);
@@ -44,7 +44,7 @@ function insertRecord(req, res) {
 
 function updateRecord(req, res) {
     Dog.findOneAndUpdate({ _id: req.body._id }, req.body, { new: true }, (err, doc) => {
-        if (!err) { res.redirect('dogs/list'); }
+        if (!err) { res.redirect('dog/list'); }
         else {
             if (err.name == 'ValidationError') {
                 handleValidationError(err, req.body);
@@ -63,7 +63,7 @@ function updateRecord(req, res) {
 router.get('/list', (req, res) => {
     Dog.find((err, docs) => {
         if (!err) {
-            res.render("dogs/list", {
+            res.render("dog/list", {
                 list: docs
             });
         }
@@ -103,7 +103,7 @@ router.get('/:id', (req, res) => {
 router.get('/delete/:id', (req, res) => {
     Dog.findByIdAndRemove(req.params.id, (err, doc) => {
         if (!err) {
-            res.redirect('/dogs/list');
+            res.redirect('/dog/list');
         }
         else { console.log('Error in dog delete :' + err); }
     });

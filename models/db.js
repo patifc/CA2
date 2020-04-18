@@ -6,4 +6,4 @@ mongoose.connect('mongodb+srv://dogs:dogsdb@cluster0-wasmn.mongodb.net/test?retr
     else { console.log('Error in DB connection : ' + err) }
 });
 
-require('./dogs.js');
+require('./dog.model');
