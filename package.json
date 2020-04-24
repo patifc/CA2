@@ -1,7 +1,7 @@
 {
   "name": "ca2",
   "version": "0.0.1",
-  "description": "just an in-class app",
+  "description": "My puppy's adoption version 2",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -21,10 +21,12 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "del": "^5.1.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-handlebars": "^3.0.0",
     "fs": "0.0.1-security",
     "http": "0.0.0",
+    "install": "^0.13.0",
     "mongoose": "^5.9.9",
     "morgan": "^1.9.1",
     "multer": "^1.4.2",

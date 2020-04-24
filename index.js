@@ -4,8 +4,8 @@ const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const bodyparser = require('body-parser');
-
 const dogController = require('./controllers/dogController');
+
 
 var app = express();
 app.use(bodyparser.urlencoded({
