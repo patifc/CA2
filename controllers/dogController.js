@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
 });
 
 
-
+//INSERTING NEW DOG 
 function insertRecord(req, res) {
     var dog = new Dog();
     dog.name = req.body.name;
@@ -43,7 +43,7 @@ function insertRecord(req, res) {
         }
     });
 }
-
+//UPDATING INFORMATION ALREADY INSERTED INTO THE db
 function updateRecord(req, res) {
     Dog.findOneAndUpdate({ _id: req.body._id }, req.body, { new: true }, (err, doc) => {
         if (!err) { res.redirect('dog/list'); }
@@ -61,7 +61,7 @@ function updateRecord(req, res) {
     });
 }
 
-
+//CHECHING THE LIST OF DOGS
 router.get('/list', (req, res) => {
     Dog.find((err, docs) => {
         if (!err) {
@@ -75,7 +75,7 @@ router.get('/list', (req, res) => {
     });
 });
 
-
+//NAME AND BREED ARE MANDATORY
 function handleValidationError(err, body) {
     for (field in err.errors) {
         switch (err.errors[field].path) {
@@ -101,7 +101,7 @@ router.get('/:id', (req, res) => {
         }
     });
 });
-
+//DELETING FROM DB
 router.get('/delete/:id', (req, res) => {
     Dog.findByIdAndRemove(req.params.id, (err, doc) => {
         if (!err) {
